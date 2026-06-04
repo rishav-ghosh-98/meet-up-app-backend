@@ -4,12 +4,19 @@ const eventSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
-      trim: true,
     },
+
+    type: {
+      type: String,
+      enum: ["Online", "Offline"],
+      required: true,
+    },
+
     image: {
       type: String,
       required: true,
     },
+
     date: {
       type: Date,
       required: true,
@@ -40,39 +47,37 @@ const eventSchema = new mongoose.Schema(
       default: 0,
     },
 
+    // Offline only
     venue: {
       type: String,
-      required: function () {
-        return this.type === "Offline";
-      },
+      default: "",
     },
 
     address: {
       type: String,
-      required: function () {
-        return this.type === "Offline";
-      },
+      default: "",
     },
 
-    dressCode: {
+    // Online only
+    meetingLink: {
       type: String,
-      default: "Not Specified",
+      default: "",
     },
 
-    ageRestriction: {
+    platform: {
       type: String,
-      default: "All Ages",
+      default: "",
     },
 
-    tags: [
-      {
-        type: String,
-      },
-    ],
+    dressCode: String,
+
+    ageRestriction: String,
+
+    tags: [String],
   },
   {
     timestamps: true,
-  },
+  }
 );
 
 module.exports = mongoose.model("Event", eventSchema);
