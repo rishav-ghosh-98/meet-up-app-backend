@@ -12,163 +12,166 @@ app.listen(PORT, () => {
   console.log("Successfully connected to port", PORT);
 });
 
-const sampleEvents = [
-  {
-    title: "React Developer Meetup",
-    type: "Offline",
-    image: eventImages.react,
-    date: new Date("2026-08-15"),
-    topic: "Advanced React",
-    description: "Learn advanced React concepts and performance optimization.",
-    sessionTimings: "10:00 AM - 4:00 PM",
-    speaker: "John Doe",
-    price: 499,
-    venue: "TCS Auditorium",
-    address: "Salt Lake, Kolkata",
-    dressCode: "Casual",
-    ageRestriction: "18+",
-    tags: ["React", "JavaScript", "Frontend"],
-  },
-  {
-    title: "Vue.js Workshop",
-    type: "Online",
-    image: eventImages.vue,
-    date: new Date("2026-08-20"),
-    topic: "Vue 3 Fundamentals",
-    description: "Master Vue 3 Composition API and best practices.",
-    sessionTimings: "11:00 AM - 2:00 PM",
-    speaker: "Sarah Lee",
-    price: 0,
-    tags: ["Vue", "Frontend", "JavaScript"],
-  },
-  {
-    title: "Angular Conference",
-    type: "Offline",
-    image: eventImages.angular,
-    date: new Date("2026-09-01"),
-    topic: "Enterprise Angular",
-    description: "Deep dive into Angular architecture and scalability.",
-    sessionTimings: "9:00 AM - 5:00 PM",
-    speaker: "Michael Scott",
-    price: 999,
-    venue: "Biswa Bangla Convention Centre",
-    address: "New Town, Kolkata",
-    dressCode: "Business Casual",
-    ageRestriction: "18+",
-    tags: ["Angular", "TypeScript", "Enterprise"],
-  },
-  {
-    title: "Full Stack Bootcamp",
-    type: "Online",
-    image: eventImages.fullStack,
-    date: new Date("2026-09-10"),
-    topic: "MERN Stack",
-    description: "Build full-stack applications using MongoDB, Express, React and Node.",
-    sessionTimings: "10:00 AM - 6:00 PM",
-    speaker: "David Miller",
-    price: 799,
-    tags: ["MERN", "React", "NodeJS"],
-  },
-  {
-    title: "AI for Developers",
-    type: "Online",
-    image: eventImages.ai,
-    date: new Date("2026-09-15"),
-    topic: "Generative AI",
-    description: "Learn how AI is transforming software development.",
-    sessionTimings: "2:00 PM - 5:00 PM",
-    speaker: "Andrew Wilson",
-    price: 299,
-    tags: ["AI", "LLM", "GenAI"],
-  },
-  {
-    title: "JavaScript Summit",
-    type: "Offline",
-    image: eventImages.javascript,
-    date: new Date("2026-09-20"),
-    topic: "Modern JavaScript",
-    description: "Explore the latest JavaScript features and ecosystem updates.",
-    sessionTimings: "9:00 AM - 3:00 PM",
-    speaker: "Emma Watson",
-    price: 399,
-    venue: "ITC Sonar",
-    address: "EM Bypass, Kolkata",
-    tags: ["JavaScript", "ES2026", "Frontend"],
-  },
-  {
-    title: "Career Networking Event",
-    type: "Offline",
-    image: eventImages.networking,
-    date: new Date("2026-10-01"),
-    topic: "Career Growth",
-    description: "Meet recruiters and software professionals.",
-    sessionTimings: "5:00 PM - 8:00 PM",
-    speaker: "Industry Leaders",
-    price: 199,
-    venue: "Novotel",
-    address: "New Town, Kolkata",
-    tags: ["Networking", "Career", "Jobs"],
-  },
-  {
-    title: "Hackathon 2026",
-    type: "Offline",
-    image: eventImages.hackathon,
-    date: new Date("2026-10-10"),
-    topic: "Innovation",
-    description: "24-hour coding competition with exciting prizes.",
-    sessionTimings: "24 Hours",
-    speaker: "Mentor Panel",
-    price: 0,
-    venue: "Tech Hub",
-    address: "Sector V, Kolkata",
-    tags: ["Hackathon", "Coding", "Competition"],
-  },
-  {
-    title: "Node.js Masterclass",
-    type: "Online",
-    image: eventImages.nodejs,
-    date: new Date("2026-10-15"),
-    topic: "Backend Development",
-    description: "Build scalable APIs with Node.js and Express.",
-    sessionTimings: "11:00 AM - 4:00 PM",
-    speaker: "Robert King",
-    price: 499,
-    tags: ["NodeJS", "Backend", "Express"],
-  },
-  {
-    title: "MongoDB Deep Dive",
-    type: "Online",
-    image: eventImages.mongodb,
-    date: new Date("2026-10-20"),
-    topic: "Database Design",
-    description: "Learn MongoDB schema design and aggregation pipelines.",
-    sessionTimings: "10:00 AM - 1:00 PM",
-    speaker: "Lisa Brown",
-    price: 399,
-    tags: ["MongoDB", "Database", "NoSQL"],
-  },
-];
+app.get("/", (req, res) => {
+  res.send("Meetup Backend Running 🚀");
+});
+// const sampleEvents = [
+//   {
+//     title: "React Developer Meetup",
+//     type: "Offline",
+//     image: eventImages.react,
+//     date: new Date("2026-08-15"),
+//     topic: "Advanced React",
+//     description: "Learn advanced React concepts and performance optimization.",
+//     sessionTimings: "10:00 AM - 4:00 PM",
+//     speaker: "John Doe",
+//     price: 499,
+//     venue: "TCS Auditorium",
+//     address: "Salt Lake, Kolkata",
+//     dressCode: "Casual",
+//     ageRestriction: "18+",
+//     tags: ["React", "JavaScript", "Frontend"],
+//   },
+//   {
+//     title: "Vue.js Workshop",
+//     type: "Online",
+//     image: eventImages.vue,
+//     date: new Date("2026-08-20"),
+//     topic: "Vue 3 Fundamentals",
+//     description: "Master Vue 3 Composition API and best practices.",
+//     sessionTimings: "11:00 AM - 2:00 PM",
+//     speaker: "Sarah Lee",
+//     price: 0,
+//     tags: ["Vue", "Frontend", "JavaScript"],
+//   },
+//   {
+//     title: "Angular Conference",
+//     type: "Offline",
+//     image: eventImages.angular,
+//     date: new Date("2026-09-01"),
+//     topic: "Enterprise Angular",
+//     description: "Deep dive into Angular architecture and scalability.",
+//     sessionTimings: "9:00 AM - 5:00 PM",
+//     speaker: "Michael Scott",
+//     price: 999,
+//     venue: "Biswa Bangla Convention Centre",
+//     address: "New Town, Kolkata",
+//     dressCode: "Business Casual",
+//     ageRestriction: "18+",
+//     tags: ["Angular", "TypeScript", "Enterprise"],
+//   },
+//   {
+//     title: "Full Stack Bootcamp",
+//     type: "Online",
+//     image: eventImages.fullStack,
+//     date: new Date("2026-09-10"),
+//     topic: "MERN Stack",
+//     description: "Build full-stack applications using MongoDB, Express, React and Node.",
+//     sessionTimings: "10:00 AM - 6:00 PM",
+//     speaker: "David Miller",
+//     price: 799,
+//     tags: ["MERN", "React", "NodeJS"],
+//   },
+//   {
+//     title: "AI for Developers",
+//     type: "Online",
+//     image: eventImages.ai,
+//     date: new Date("2026-09-15"),
+//     topic: "Generative AI",
+//     description: "Learn how AI is transforming software development.",
+//     sessionTimings: "2:00 PM - 5:00 PM",
+//     speaker: "Andrew Wilson",
+//     price: 299,
+//     tags: ["AI", "LLM", "GenAI"],
+//   },
+//   {
+//     title: "JavaScript Summit",
+//     type: "Offline",
+//     image: eventImages.javascript,
+//     date: new Date("2026-09-20"),
+//     topic: "Modern JavaScript",
+//     description: "Explore the latest JavaScript features and ecosystem updates.",
+//     sessionTimings: "9:00 AM - 3:00 PM",
+//     speaker: "Emma Watson",
+//     price: 399,
+//     venue: "ITC Sonar",
+//     address: "EM Bypass, Kolkata",
+//     tags: ["JavaScript", "ES2026", "Frontend"],
+//   },
+//   {
+//     title: "Career Networking Event",
+//     type: "Offline",
+//     image: eventImages.networking,
+//     date: new Date("2026-10-01"),
+//     topic: "Career Growth",
+//     description: "Meet recruiters and software professionals.",
+//     sessionTimings: "5:00 PM - 8:00 PM",
+//     speaker: "Industry Leaders",
+//     price: 199,
+//     venue: "Novotel",
+//     address: "New Town, Kolkata",
+//     tags: ["Networking", "Career", "Jobs"],
+//   },
+//   {
+//     title: "Hackathon 2026",
+//     type: "Offline",
+//     image: eventImages.hackathon,
+//     date: new Date("2026-10-10"),
+//     topic: "Innovation",
+//     description: "24-hour coding competition with exciting prizes.",
+//     sessionTimings: "24 Hours",
+//     speaker: "Mentor Panel",
+//     price: 0,
+//     venue: "Tech Hub",
+//     address: "Sector V, Kolkata",
+//     tags: ["Hackathon", "Coding", "Competition"],
+//   },
+//   {
+//     title: "Node.js Masterclass",
+//     type: "Online",
+//     image: eventImages.nodejs,
+//     date: new Date("2026-10-15"),
+//     topic: "Backend Development",
+//     description: "Build scalable APIs with Node.js and Express.",
+//     sessionTimings: "11:00 AM - 4:00 PM",
+//     speaker: "Robert King",
+//     price: 499,
+//     tags: ["NodeJS", "Backend", "Express"],
+//   },
+//   {
+//     title: "MongoDB Deep Dive",
+//     type: "Online",
+//     image: eventImages.mongodb,
+//     date: new Date("2026-10-20"),
+//     topic: "Database Design",
+//     description: "Learn MongoDB schema design and aggregation pipelines.",
+//     sessionTimings: "10:00 AM - 1:00 PM",
+//     speaker: "Lisa Brown",
+//     price: 399,
+//     tags: ["MongoDB", "Database", "NoSQL"],
+//   },
+// ];
 
-const seedEvents = async () => {
-  try {
-    await initialiseDatabase();
+// const seedEvents = async () => {
+//   try {
+//     await initialiseDatabase();
 
-    await Events.deleteMany();
+//     await Events.deleteMany();
 
-    const insertedEvents = await Events.insertMany(sampleEvents);
+//     const insertedEvents = await Events.insertMany(sampleEvents);
 
-    console.log(
-      `✅ Successfully seeded ${insertedEvents.length} events`
-    );
+//     console.log(
+//       `✅ Successfully seeded ${insertedEvents.length} events`
+//     );
 
-    process.exit(0);
-  } catch (error) {
-    console.error("❌ Error seeding events:", error);
-    process.exit(1);
-  }
-};
+//     process.exit(0);
+//   } catch (error) {
+//     console.error("❌ Error seeding events:", error);
+//     process.exit(1);
+//   }
+// };
 
-seedEvents();
+// seedEvents();
 // const seedEvents = async () => {
 //   try {
 //     await Events.deleteMany();
