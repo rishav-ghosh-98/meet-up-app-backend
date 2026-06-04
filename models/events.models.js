@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const eventSchema = new mongoose.Schema(
   {
     title: {
@@ -47,7 +48,7 @@ const eventSchema = new mongoose.Schema(
       default: 0,
     },
 
-    // Offline only
+    // Offline Events
     venue: {
       type: String,
       default: "",
@@ -58,20 +59,26 @@ const eventSchema = new mongoose.Schema(
       default: "",
     },
 
-    // Online only
-    meetingLink: {
-      type: String,
-      default: "",
-    },
-
+    // Online Events
     platform: {
       type: String,
       default: "",
     },
 
-    dressCode: String,
+    meetingLink: {
+      type: String,
+      default: "",
+    },
 
-    ageRestriction: String,
+    dressCode: {
+      type: String,
+      default: "",
+    },
+
+    ageRestriction: {
+      type: String,
+      default: "",
+    },
 
     tags: [String],
   },
@@ -80,4 +87,4 @@ const eventSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Event", eventSchema);
+module.exports = mongoose.model("Events", eventSchema);
